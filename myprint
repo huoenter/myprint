@@ -1,0 +1,9 @@
+SERVER="stimpy.cis.udel.edu"
+USER=`whoami`
+FILE=$1
+FOLDER=":~/"
+
+scp $FILE $USER@$SERVER$FOLDER > /dev/null
+ssh $USER@$SERVER "lpr -Phiper "${FILE##*/}
+ssh $USER@$SERVER "rm "${FILE##*/}
+
